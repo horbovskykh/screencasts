@@ -1,5 +1,5 @@
 class Item
-  def initialize(options)
+  def initialize(options={})
     @price = options[:price]
 	@weight = options[:weight]
   end
@@ -9,6 +9,4 @@ class Item
 
 end
 
-item1 = Item.new({ :price => 30, :weight => 10 })
-puts item1.price
-puts item1.weight
+#puts Item.new({ :price => 20 }).price
