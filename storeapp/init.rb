@@ -22,3 +22,4 @@ p item2.respond_to?(:weight)
 
 puts Item.discount
 puts item1.price
+puts item1.real_price
