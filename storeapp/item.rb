@@ -1,8 +1,18 @@
 class Item
 
+  @@discount = 0.1  
+
+  def self.discount
+    if Time.now.month == 10
+      return @@discount + 0.2
+    else
+      return @@discount
+    end
+  end
+
   def initialize(options={})
     @price = options[:price]
-	@name = options[:name]
+    @name = options[:name]
   end
 
   attr_reader :price, :name
@@ -11,6 +21,10 @@ class Item
   def info
 	yield(price)
 	yield(name)
+  end
+
+  def price
+    @price - @price*self.class.discount
   end
   
 end
