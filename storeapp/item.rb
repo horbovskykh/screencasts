@@ -24,9 +24,11 @@ class Item
   end
 
   def price
-    unless @real_price.nil?
-	  (@real_price - @real_price*self.class.discount) + tax
-	end
+    (@real_price - @real_price*self.class.discount) + tax if @real_price
+    #my version
+	#unless @real_price.nil?
+	#  (@real_price - @real_price*self.class.discount) + tax
+	#end
   end
 
 private
