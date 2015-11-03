@@ -6,7 +6,7 @@ require_relative "real_item"
 require_relative "virtual_item"
 
 item1 = VirtualItem.new({ :price => 10, :name => "Car" })
-item2 = RealItem.new({ :weight => 100, :name => "Car" })
+item2 = RealItem.new({ :weight => 100, :name => "Car", price: 100})
 item3 = RealItem.new({ :price => 10, :weight => 100, :name => "Phone" })
 
 cart = Cart.new
