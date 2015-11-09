@@ -13,14 +13,16 @@ class Item
   def initialize(options={})
     @real_price = options[:price]
     @name = options[:name]
+	@weight = options[:weight]
   end
 
-  attr_reader :real_price, :name
+  attr_reader :real_price, :name, :weight
   attr_writer :price
   
   def info
 	yield(price)
 	yield(name)
+	yield(weight)
   end
 
   def price
