@@ -34,6 +34,11 @@ class Item
 	  @real_price = 0
 	end
   end
+  
+  def to_s
+    "#{self.name}:#{self.price}:#{self.weight}"
+  end
+  
 
 private
 

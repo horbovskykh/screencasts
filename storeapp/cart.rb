@@ -11,16 +11,14 @@ class Cart
   
   def save_to_file
     File.open("#{@owner}_cart.txt", "w") do |f|
-	  @items.each { |i| f.puts "#{i.name}:#{i.price}:#{i.weight}" }
+	  @items.each { |i| f.puts i } #puts convert i to string  using general method to_s
 	end
   end
   
   def read_from_file
     return unless File.exists?("#{@owner}_cart.txt")
-    item_fields = File.readlines("#{@owner}_cart.txt")
-	item_fields.map! { |i| i.chomp }
-	item_fields.map! { |i| i.split(":") }
-	item_fields.each { |i| @items << RealItem.new(name: i[0], price: i[1].to_i, weight: i[2].to_i ) }
+    File.readlines("#{@owner}_cart.txt").each { |i| @items << i.to_real_item }
+    
 	#@items.uniq!
   end
  
