@@ -16,12 +16,9 @@ class Cart
   end
   
   def read_from_file
-    begin
-	  File.readlines("#{@owner}_cart.txt").each { |i| @items << i.to_real_item }
-    rescue Errno::ENOENT
-	  File.open("#{@owner}_cart.txt", "w")
-	  puts "File #{@owner}_cart.txt created"
-	end
+    return unless File.exists?("#{@owner}_cart.txt")
+    File.readlines("#{@owner}_cart.txt").each { |i| @items << i.to_real_item }
+    
 	#@items.uniq!
   end
  
