@@ -7,7 +7,7 @@ require_relative "real_item"
 require_relative "virtual_item"
 
 @items = []
-@items << VirtualItem.new({ :price => 10, :name => "car" })
+@items << VirtualItem.new(price: 10, name: "car") #syntax sugar
 @items << RealItem.new({ :weight => 100, :name => "Car", price: 100})
 @items << RealItem.new({ :price => 10, :weight => 100, :name => "Phone" })
 
@@ -18,5 +18,9 @@ cart.add_item RealItem.new({ :weight => 100, :name => "car", price: 100})
 cart.add_item RealItem.new({ :weight => 100, :name => "caar", price: 100})
 
 
-p cart.all_caars
+puts cart.all_caars
 p cart.all_Cars
+puts cart.kind_of?(Cart)
+puts @items[0].class == (Item)
+puts cart.respond_to?(:save_to_file) #check availability of method in object
+puts @items[0].send (:price) #send can be also used for private methods (for example, tax)
